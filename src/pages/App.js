@@ -23,6 +23,10 @@ const App = () => {
       })
   }, [])
 
+  // const [species, setSpecies] = useState(null)
+  // useEffect(() => {
+  //   fetch(`https://pokeapi.co/api/v2/pokemon-species/${}`)
+  // })
 
 
   return (
@@ -36,13 +40,13 @@ const App = () => {
             name={item && item.name}
             type={item.types[0].type.name}
             price={item.base_experience}
-            scr={item.sprites.front_default}
+            src={item.sprites.front_default}
+            gerenation={'geracao'}
+            capture={'capture'}
           />
         )
         )
         }
-
-
 
       </Main>
       <Footer />
