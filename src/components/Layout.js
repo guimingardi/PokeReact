@@ -15,6 +15,12 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #F7F7EB;
   }
 
+  button{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: #334A52;
+  }
+
 `
 
 const Main = styled.main`
