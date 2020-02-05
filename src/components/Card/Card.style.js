@@ -29,8 +29,8 @@ export const InfoBold = styled.span`
 `
 
 export const CardImg = styled.img`
-  background-color: red;
-  width: 150px;
+  width: 100px;
+  height: 100px
 `
 
 export const Button = styled.button`

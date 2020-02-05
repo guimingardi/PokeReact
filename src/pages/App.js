@@ -12,7 +12,7 @@ import Wrapper from '../components/Wrapper'
 const App = () => {
   const [pokemons, setPokemons] = useState(null)
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=20')
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=150')
       .then((res) => {
         return res.json()
       })
@@ -34,29 +34,6 @@ const App = () => {
 
 
   return (
-    <Layout>
-      <Navbar />
-      <Main>
-
-        {pokemons && pokemons.map(item => (
-          <BuyMenu
-            key={item && item.name}
-            name={item && item.name}
-            type={item.types[0].type.name}
-            price={item.base_experience}
-            src={item.sprites.front_default}
-            gerenation={'geracao'}
-            capture={'capture'}
-          />
-        )
-        )
-        }
-
-      </Main>
-      <Footer />
-    </Layout>
-
-  return (
       <Layout>
         <Navbar />
         <Main>
@@ -64,7 +41,17 @@ const App = () => {
           <Wrapper>
             <PageTitle text="poke store" />
             <CardWrapper>
-              <Card />
+              {pokemons && pokemons.map( item => (
+                <Card 
+                  key={item && item.name}
+                  name={item && item.name}
+                  type={item.types[0].type.name}
+                  price={item.base_experience}
+                  src={item.sprites.front_default}
+                  generation={'geracao'}
+                  capture={'capture'}
+                />
+              ))}
             </CardWrapper>
           </Wrapper>
         </Main>
