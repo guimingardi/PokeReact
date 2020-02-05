@@ -31,15 +31,18 @@ const App = () => {
       <Main>
 
         {pokemons && pokemons.map(item => (
-              <BuyMenu
-              key={item && item.name}
-              name={item && item.name}
-              type={item.types[0].type.name}
-              price={item.base_experience}
-              />
-              )
-          )
+          <BuyMenu
+            key={item && item.name}
+            name={item && item.name}
+            type={item.types[0].type.name}
+            price={item.base_experience}
+            scr={item.sprites.front_default}
+          />
+        )
+        )
         }
+
+
 
       </Main>
       <Footer />
