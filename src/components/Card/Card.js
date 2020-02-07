@@ -27,7 +27,8 @@ const Card = ({ name, src, type, price, generation, capture }) => {
           </div>
           <CardImg src={src} />
         </InfoContainer>
-      <Button>P$ {price}</Button>
+          <Button>P$ {price}</Button>
+          {/* <Button>{price <= 50 ? price = `P$ ${price = 10}` : price }</Button> */}
     </CardBody>
   )
 }
