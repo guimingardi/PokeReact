@@ -11,8 +11,9 @@ const Card = ({ name, src, type, price, generation, capture }) => {
             <Info>
               <InfoBold>tipo: </InfoBold>
               {type.map((elm) => {
+                const { type } = elm
                 return (
-                  <span>{elm.type.name} </span>
+                  <span>{ type.name } </span>
                 )
               })}
             </Info>

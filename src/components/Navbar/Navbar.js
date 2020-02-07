@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { NavBody, Nav, NavList, NavItem, NavLink } from './Navbar.style'
 
 const navItens = [{'text':'comprar'}, {'text':'perfil'}, {'text':'carrinho'}]
 const renderNavItem = () => (
   navItens.map((elm) => (
     <NavItem key={elm.text} >
-      <NavLink>{elm.text}</NavLink>
+      <Link to="/profile">{elm.text}</Link>
     </NavItem>
   ))
-) 
+)
 
 const Navbar = () => (  
   <NavBody>

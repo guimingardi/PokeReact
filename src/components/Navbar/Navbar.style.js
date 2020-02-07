@@ -18,6 +18,16 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li`
   margin-right: 16px;
+
+  a{
+    text-decoration: none;
+    color: #F7F7EB;
+    cursor: pointer;
+  :hover {
+    color: #96AFB9;
+  }
+
+  }
 `
 
 export const NavLink = styled.a`
