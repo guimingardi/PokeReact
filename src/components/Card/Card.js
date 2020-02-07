@@ -9,7 +9,12 @@ const Card = ({ name, src, type, price, generation, capture }) => {
         <InfoContainer>
           <div>
             <Info>
-              <InfoBold>tipo:</InfoBold> {type}
+              <InfoBold>tipo: </InfoBold>
+              {type.map((elm) => {
+                return (
+                  <span>{elm.type.name} </span>
+                )
+              })}
             </Info>
 
             <Info>

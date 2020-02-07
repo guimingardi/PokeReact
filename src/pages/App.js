@@ -21,7 +21,6 @@ const App = () => {
           return fetch(pokemonsObj.url)
             .then((pokemonsUrl) => pokemonsUrl.json())
         })).then((valuePokemonsUrl) => {
-          console.log(valuePokemonsUrl)
           setPokemons(valuePokemonsUrl)
         })
       })
@@ -45,7 +44,7 @@ const App = () => {
                 <Card 
                   key={item && item.name}
                   name={item && item.name}
-                  type={item.types[0].type.name}
+                  type={item.types}
                   price={item.base_experience}
                   src={item.sprites.front_default}
                   generation={'geracao'}
