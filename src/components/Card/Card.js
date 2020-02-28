@@ -1,8 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import { CardBody, Title, InfoContainer, Info, InfoBold, CardImg, Button } from './Card.style'
 
 
 const Card = ({ name, src, type, price, generation, capture }) => {
+  
+  const [priceNew, setPriceNew] = useState(0)
+
+  useEffect(() => {
+    if(price <= 100){
+      setPriceNew(10)
+    }else if(price > 100 && price <= 200){
+      setPriceNew(30)
+    }else{
+      setPriceNew(50)
+    }
+  })
+
   return (
     <CardBody>
       <Title>{ name }</Title>
@@ -28,8 +41,7 @@ const Card = ({ name, src, type, price, generation, capture }) => {
           </div>
           <CardImg src={src} />
         </InfoContainer>
-          <Button>P$ {price}</Button>
-          {/* <Button>{price <= 50 ? price = `P$ ${price = 10}` : price }</Button> */}
+            <Button>P$ {priceNew}</Button>
     </CardBody>
   )
 }
