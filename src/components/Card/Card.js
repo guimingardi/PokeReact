@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { CardBody, Title, InfoContainer, Info, InfoBold, CardImg, Button } from './Card.style'
 
 
-const Card = ({ name, src, type, price, generation, capture }) => {
+const Card = ({ name, src, type, price, purchasePokemon }) => {
+  const [newPrice, setNewPrice] = useState(null)
+  const [species, setSpecies] = useState({})
+
+  const calculatePrice = () => {
+    if (price <= 100) {
+      setNewPrice(10)
+    } else if (price <= 200) {
+      setNewPrice(20)
+    } else {
+      setNewPrice(30)
+    }
+  }
+
+  useEffect(() => {
+    calculatePrice()
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${name}`)
+      .then(res => res.json())
+      .then(res => setSpecies({
+        generation: res.generation.name,
+        captureRate: res.capture_rate
+      }))
+  }, [])
+
   return (
     <CardBody>
       <Title>{ name }</Title>
@@ -19,17 +42,18 @@ const Card = ({ name, src, type, price, generation, capture }) => {
             </Info>
 
             <Info>
-              <InfoBold>geração:</InfoBold> {generation}
+              {species.generation &&
+                <InfoBold>geração: {species.generation.replace(/generation-i/g, 'Primeira')}</InfoBold>
+              }
             </Info>
 
             <Info>
-              <InfoBold>taxa de captura:</InfoBold> {capture}
+              <InfoBold>taxa de captura:</InfoBold> {species.captureRate}
             </Info>
           </div>
           <CardImg src={src} />
         </InfoContainer>
-          <Button>P$ {price}</Button>
-          {/* <Button>{price <= 50 ? price = `P$ ${price = 10}` : price }</Button> */}
+          <Button onClick={() => purchasePokemon(name, newPrice, src)}>P$ {newPrice}</Button>
     </CardBody>
   )
 }

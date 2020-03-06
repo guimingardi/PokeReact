@@ -19,6 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     color: white;
     background-color: #334A52;
+    border: none;
+
+    &:disabled {
+      background-color: grey;      
+    }
   }
 
 `
