@@ -6,7 +6,7 @@ export const CardBody = styled.div`
   margin-bottom: 48px;
   box-sizing: border-box;
   color: #C594D2;
-  background-color: #000000;
+  background-color: #8E619C;
 `
 
 export const Title = styled.h2`
